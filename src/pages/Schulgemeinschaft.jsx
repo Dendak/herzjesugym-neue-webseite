@@ -1,32 +1,73 @@
+import { Link } from 'react-router-dom'
 import {
-  FaUserTie, FaUserCog, FaUserShield, FaUser, FaCross, FaEnvelope,
-  FaPhone, FaGlobe, FaChalkboardTeacher, FaUserFriends, FaUsers,
-  FaStethoscope, FaBrain, FaBuilding, FaClock, FaCalculator
+  FaUserTie, FaCalculator, FaUsers, FaHome, FaBuilding,
+  FaUserFriends, FaChalkboardTeacher, FaClock, FaStethoscope,
+  FaExternalLinkAlt
 } from 'react-icons/fa'
 import PageHero from '../components/PageHero'
 import AnimatedSection from '../components/AnimatedSection'
 
-const leadership = [
-  { icon: <FaUserTie />, name: 'Mag. Peter Porenta', role: 'Direktor', email: 'direktion@herzjesugym.at', phone: '0662 432901' },
-  { icon: <FaUserCog />, name: 'Mag. Franz Feichtl', role: 'Administrator', email: 'administration@herzjesugym.at', phone: '0662 432901-230' },
-  { icon: <FaUserShield />, name: 'Mag. Dr. Paul Dienstbier', role: 'Tagesheimleiter', email: 'paul.dienstbier@herzjesugym.at', phone: '0662 432901-238' },
-  { icon: <FaUser />, name: 'Denis Holub', role: 'Personalleiter', email: 'denis.holub@herzjesugym.at', phone: '0662 432901-236' },
-]
-
-const schulerhalter = [
-  { name: 'P. Michael Huber MSC', role: 'Provinzial', email: 'provinzialat@msc-salzburg.at', web: 'herz-jesu-missionare.com' },
-  { name: 'P. Manfred Oßner MSC', role: 'Superior', email: 'superiorat@msc-salzburg.at', web: 'herz-jesu-missionare.com' },
-]
-
 const communityLinks = [
-  { icon: <FaChalkboardTeacher />, label: 'Lehrkräfte' },
-  { icon: <FaUserFriends />, label: 'Elternverein' },
-  { icon: <FaUsers />, label: 'Schülervertretung' },
-  { icon: <FaStethoscope />, label: 'Schularzt' },
-  { icon: <FaBrain />, label: 'Schulpsychologie' },
-  { icon: <FaBuilding />, label: 'Hausverwaltung' },
-  { icon: <FaClock />, label: 'Sprechstunden' },
-  { icon: <FaCalculator />, label: 'Sekretariat' },
+  {
+    icon: <FaUserTie />,
+    label: 'Schulleitung',
+    to: '/schulleitung',
+    external: false,
+  },
+  {
+    icon: <FaCalculator />,
+    label: 'Sekretariat / Buchhaltung',
+    to: '/sekretariat',
+    external: false,
+  },
+  {
+    icon: <FaUsers />,
+    label: 'Sch\u00fclerinnen / Sch\u00fcler',
+    to: '/schuelerseite',
+    external: false,
+  },
+  {
+    icon: <FaHome />,
+    label: 'Tagesheim',
+    to: '/tagesheim',
+    external: false,
+  },
+  {
+    icon: <FaBuilding />,
+    label: 'Internat',
+    to: 'https://internat.herzjesugym.com/',
+    external: true,
+  },
+  {
+    icon: <FaUserFriends />,
+    label: 'Elternverein',
+    to: 'http://eltern-am-herzjesugym.at/',
+    external: true,
+  },
+  {
+    icon: <FaChalkboardTeacher />,
+    label: 'Lehrerinnen / Lehrer',
+    to: '/schulleitung',
+    external: false,
+  },
+  {
+    icon: <FaClock />,
+    label: 'Sprechstunden',
+    to: 'https://erato.webuntis.com/WebUntis/?school=herzjesugym#/basic/officehours',
+    external: true,
+  },
+  {
+    icon: <FaStethoscope />,
+    label: 'Schularzt / Schulpsychologin',
+    to: '/schularzt',
+    external: false,
+  },
+  {
+    icon: <FaBuilding />,
+    label: 'Hausverwaltung',
+    to: '/hausverwaltung',
+    external: false,
+  },
 ]
 
 function Schulgemeinschaft() {
@@ -40,52 +81,37 @@ function Schulgemeinschaft() {
       />
       <div className="container page-content">
         <AnimatedSection className="section-header">
-          <span className="section-tag">Schulleitung</span>
-          <h2 className="section-title">Direktion & Administration</h2>
+          <span className="section-tag">Bereiche</span>
+          <h2 className="section-title">Unsere Schulgemeinschaft</h2>
+          <p className="section-desc">
+            Die Schulgemeinschaft des Herz-Jesu-Gymnasiums besteht aus vielen engagierten Menschen.
+            W&auml;hlen Sie einen Bereich, um mehr zu erfahren.
+          </p>
         </AnimatedSection>
-        <div className="team-grid">
-          {leadership.map((p, i) => (
-            <AnimatedSection key={i} className="team-card" delay={i * 100}>
-              <div className="team-avatar">{p.icon}</div>
-              <h3>{p.name}</h3>
-              <span className="team-role">{p.role}</span>
-              <div className="team-contact">
-                <a href={`mailto:${p.email}`}><FaEnvelope /> {p.email}</a>
-                <a href={`tel:+43${p.phone.replace(/[^0-9]/g, '')}`}><FaPhone /> {p.phone}</a>
-              </div>
+
+        <div className="link-cards-grid">
+          {communityLinks.map((item, i) => (
+            <AnimatedSection key={i} delay={i * 80}>
+              {item.external ? (
+                <a
+                  href={item.to}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-card"
+                >
+                  <div className="link-card-icon">{item.icon}</div>
+                  <span className="link-card-label">{item.label}</span>
+                  <FaExternalLinkAlt className="link-card-external" />
+                </a>
+              ) : (
+                <Link to={item.to} className="link-card">
+                  <div className="link-card-icon">{item.icon}</div>
+                  <span className="link-card-label">{item.label}</span>
+                </Link>
+              )}
             </AnimatedSection>
           ))}
         </div>
-
-        <AnimatedSection className="section-header" style={{ marginTop: '4rem' }}>
-          <span className="section-tag">Schulerhalter</span>
-          <h2 className="section-title">Herz-Jesu-Missionare</h2>
-        </AnimatedSection>
-        <div className="team-grid">
-          {schulerhalter.map((p, i) => (
-            <AnimatedSection key={i} className="team-card" delay={i * 100}>
-              <div className="team-avatar"><FaCross /></div>
-              <h3>{p.name}</h3>
-              <span className="team-role">{p.role}</span>
-              <div className="team-contact">
-                <a href={`mailto:${p.email}`}><FaEnvelope /> {p.email}</a>
-                <a href={`https://${p.web}`} target="_blank" rel="noopener noreferrer"><FaGlobe /> {p.web}</a>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
-
-        <AnimatedSection className="community-links">
-          <h3>Weitere Bereiche der Schulgemeinschaft</h3>
-          <div className="link-cards-grid">
-            {communityLinks.map((l, i) => (
-              <div key={i} className="link-card">
-                {l.icon}
-                <span>{l.label}</span>
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
       </div>
     </>
   )

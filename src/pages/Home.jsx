@@ -3,8 +3,8 @@ import { useEffect, useRef } from 'react'
 import {
   FaUserPlus, FaInfoCircle, FaGraduationCap, FaUsers, FaBookOpen,
   FaAward, FaHeart, FaFlask, FaGlobeEurope, FaHome, FaLaptopCode,
-  FaPlane, FaCalendar, FaTag, FaSkiing, FaExchangeAlt, FaSnowboarding,
-  FaStar, FaEnvelope, FaChevronDown
+  FaPlane, FaCalendar, FaTag, FaEnvelope, FaChevronDown,
+  FaYoutube, FaExternalLinkAlt
 } from 'react-icons/fa'
 import AnimatedSection from '../components/AnimatedSection'
 
@@ -35,11 +35,57 @@ function CountUp({ target, suffix = '' }) {
   return <div ref={ref} className="stat-number">0</div>
 }
 
+const blogPosts = [
+  {
+    title: 'Gestern Vitamin D, heute Vitamin Schnee \u2013 Gr\u00fc\u00dfe von der 3ab',
+    date: '18. M\u00e4rz 2026',
+    category: 'Bewegung und Sport',
+    url: '/bewegung-und-sport/gestern-vitamin-d-heute-vitamin-schnee-gruesse-von-der-3ab/',
+    image: 'https://www.herzjesugym.com/wp-content/uploads/2026/03/d323d901-a41f-407a-a218-eea45d0c4380-1-700x500.jpeg',
+    featured: true,
+  },
+  {
+    title: 'Austausch verbindet: Besuch aus Kecskem\u00e9t',
+    date: '11. M\u00e4rz 2026',
+    category: 'Projekte',
+    url: '/projekte/austausch-verbindet-besuch-aus-kecskemet/',
+    image: 'https://www.herzjesugym.com/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-11-at-09.11.44-700x500.jpeg',
+  },
+  {
+    title: 'Gr\u00fc\u00dfe vom Schikurs der Klassen 2cd in Obertauern!',
+    date: '4. M\u00e4rz 2026',
+    category: 'Bewegung und Sport',
+    url: '/bewegung-und-sport/gruesse-vom-schikurs-der-klassen-2cd-in-obertauern/',
+    image: 'https://www.herzjesugym.com/wp-content/uploads/2026/03/1000057291-700x600.jpg',
+  },
+  {
+    title: 'Talenteabend 2026 \u2013 herzliche Einladung!',
+    date: '27. Februar 2026',
+    category: 'Elternverein',
+    url: '/elternverein/talenteabend-2026-herzliche-einladung/',
+    image: 'https://www.herzjesugym.com/wp-content/uploads/2026/02/Einladung_Talente-Abend_aktuell-bilder-0-1024x724.jpg',
+  },
+  {
+    title: 'Landessprachenwettbewerb 2026',
+    date: '25. Februar 2026',
+    category: 'Allgemein',
+    url: '/allgemein/landessprachenwettbewerb-2026/',
+    image: 'https://www.herzjesugym.com/wp-content/uploads/2026/02/Sprachenwettbewerb.jpg',
+  },
+]
+
 function Home() {
   return (
     <>
       {/* Hero */}
-      <header className="hero">
+      <header
+        className="hero"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url(https://www.herzjesugym.com/wp-content/uploads/2024/10/alle-Lehrer-2024-1.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
         <div className="hero-content">
           <div className="hero-badge">Privatgymnasium seit 1891</div>
           <h1 className="hero-title">
@@ -72,7 +118,7 @@ function Home() {
             <AnimatedSection className="stat-card" delay={100}>
               <div className="stat-icon"><FaUsers /></div>
               <CountUp target={600} suffix="+" />
-              <div className="stat-label">Schülerinnen & Schüler</div>
+              <div className="stat-label">Sch&uuml;lerinnen &amp; Sch&uuml;ler</div>
             </AnimatedSection>
             <AnimatedSection className="stat-card" delay={200}>
               <div className="stat-icon"><FaBookOpen /></div>
@@ -100,12 +146,12 @@ function Home() {
           </AnimatedSection>
           <div className="features-grid">
             {[
-              { icon: <FaHeart />, title: 'Christliche Werte', desc: 'Gegründet von den Herz-Jesu-Missionaren, pflegen wir eine Kultur der Nächstenliebe, des Respekts und der Gemeinschaft.' },
-              { icon: <FaFlask />, title: 'MINT-Förderung', desc: 'Naturwissenschaftliches Labor, Informatik und Astronomie-Pluskurs erweitern das klassische Gymnasium um zukunftsorientierte Fächer.' },
-              { icon: <FaGlobeEurope />, title: 'Sprachenvielfalt', desc: 'Englisch, Französisch, Latein, Griechisch, Italienisch, Russisch und Spanisch \u2014 eine einzigartige Bandbreite.' },
-              { icon: <FaHome />, title: 'Tagesheim & Internat', desc: 'Ganztägige Betreuung mit frischem Mittagessen, Freizeitangeboten und professioneller Lernbegleitung.' },
+              { icon: <FaHeart />, title: 'Christliche Werte', desc: 'Gegr\u00fcndet von den Herz-Jesu-Missionaren, pflegen wir eine Kultur der N\u00e4chstenliebe, des Respekts und der Gemeinschaft.' },
+              { icon: <FaFlask />, title: 'MINT-F\u00f6rderung', desc: 'Naturwissenschaftliches Labor, Informatik und Astronomie-Pluskurs erweitern das klassische Gymnasium um zukunftsorientierte F\u00e4cher.' },
+              { icon: <FaGlobeEurope />, title: 'Sprachenvielfalt', desc: 'Englisch, Franz\u00f6sisch, Latein, Griechisch, Italienisch, Russisch und Spanisch \u2014 eine einzigartige Bandbreite.' },
+              { icon: <FaHome />, title: 'Tagesheim & Internat', desc: 'Ganzt\u00e4gige Betreuung mit frischem Mittagessen, Freizeitangeboten und professioneller Lernbegleitung.' },
               { icon: <FaLaptopCode />, title: 'Digitale Bildung', desc: 'Als Expert.Schule mit Gold-Zertifikat nutzen wir moderne Lernplattformen wie Moodle, Teams und WebUntis.' },
-              { icon: <FaPlane />, title: 'Erasmus+ & Austausch', desc: 'Internationale Projekte und Schüleraustausch, u.a. mit unserer Partnerschule in Kecskemét, Ungarn.' },
+              { icon: <FaPlane />, title: 'Erasmus+ & Austausch', desc: 'Internationale Projekte und Sch\u00fcleraustausch, u.a. mit unserer Partnerschule in Kecskem\u00e9t, Ungarn.' },
             ].map((f, i) => (
               <AnimatedSection key={i} className="feature-card" delay={i * 100}>
                 <div className="feature-icon">{f.icon}</div>
@@ -124,28 +170,74 @@ function Home() {
             <span className="section-tag">Aktuelles</span>
             <h2 className="section-title">Neuigkeiten aus dem Schulleben</h2>
           </AnimatedSection>
-          <div className="news-grid">
-            {[
-              { icon: <FaSkiing />, badge: 'Aktuell', date: 'März 2026', tag: 'Sport', title: 'Vitamin Schnee \u2014 Schikurs der 3ab', desc: 'Unsere dritten Klassen genossen einen unvergesslichen Schikurs mit viel Schnee und Spaß auf der Piste.', featured: true },
-              { icon: <FaExchangeAlt />, date: '2026', tag: 'Erasmus+', title: 'Austausch mit Kecskemét', desc: 'Im Rahmen unseres Erasmus-Projekts besuchten Schüler unsere Partnerschule in Ungarn.' },
-              { icon: <FaSnowboarding />, date: '2026', tag: 'Sport', title: 'Schikurs 2cd in Obertauern', desc: 'Die Klassen 2c und 2d verbrachten eine sportliche Woche in Obertauern.' },
-              { icon: <FaStar />, date: '2026', tag: 'Kultur', title: 'Talenteabend 2026', desc: 'Schülerinnen und Schüler zeigten beim Talenteabend ihre beeindruckenden Fähigkeiten.' },
-            ].map((n, i) => (
-              <AnimatedSection key={i} className={`news-card ${n.featured ? 'featured' : ''}`} delay={i * 100}>
-                <div className="news-image">
-                  <div className="news-image-placeholder">{n.icon}</div>
-                  {n.badge && <span className="news-badge">{n.badge}</span>}
-                </div>
-                <div className="news-content">
-                  <div className="news-meta">
-                    <span><FaCalendar /> {n.date}</span>
-                    <span><FaTag /> {n.tag}</span>
-                  </div>
-                  <h3>{n.title}</h3>
-                  <p>{n.desc}</p>
+          <div className="news-with-sidebar">
+            <div className="news-grid">
+              {blogPosts.map((post, i) => (
+                <AnimatedSection key={i} className={`news-card ${post.featured ? 'featured' : ''}`} delay={i * 100}>
+                  <a href={`https://www.herzjesugym.com${post.url}`} target="_blank" rel="noopener noreferrer" className="news-card-link">
+                    <div className="news-image">
+                      <img src={post.image} alt={post.title} loading="lazy" />
+                    </div>
+                    <div className="news-content">
+                      <div className="news-meta">
+                        <span><FaCalendar /> {post.date}</span>
+                        <span><FaTag /> {post.category}</span>
+                      </div>
+                      <h3>{post.title}</h3>
+                    </div>
+                  </a>
+                </AnimatedSection>
+              ))}
+            </div>
+
+            {/* Sidebar */}
+            <aside className="news-sidebar">
+              <AnimatedSection className="sidebar-card">
+                <h3><FaYoutube /> Videoimpressionen</h3>
+                <a
+                  href="https://youtu.be/mTIMB7TI3vo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sidebar-video-link"
+                >
+                  <img
+                    src="https://www.herzjesugym.com/wp-content/uploads/2023/06/intro-300x149.jpg"
+                    alt="Videoimpressionen Herz-Jesu-Gymnasium"
+                    style={{ width: '100%', borderRadius: '8px' }}
+                    loading="lazy"
+                  />
+                  <span className="sidebar-video-play">Video ansehen <FaExternalLinkAlt /></span>
+                </a>
+              </AnimatedSection>
+
+              <AnimatedSection className="sidebar-card" delay={100}>
+                <h3>Jahresmotto</h3>
+                <img
+                  src="https://www.herzjesugym.com/wp-content/uploads/2025/09/5JahresMotto2025-26-120x300.jpg"
+                  alt="Jahresmotto 2025/26"
+                  style={{ width: '120px', display: 'block', margin: '0 auto', borderRadius: '8px' }}
+                  loading="lazy"
+                />
+              </AnimatedSection>
+
+              <AnimatedSection className="sidebar-card" delay={200}>
+                <h3>Auszeichnungen</h3>
+                <div className="sidebar-badges">
+                  <img
+                    src="https://www.herzjesugym.com/wp-content/uploads/2024/10/expertschule.png"
+                    alt="Expert.Schule"
+                    style={{ height: '60px', marginRight: '12px' }}
+                    loading="lazy"
+                  />
+                  <img
+                    src="https://www.herzjesugym.com/wp-content/uploads/2019/03/erasmus.jpg"
+                    alt="Erasmus+"
+                    style={{ height: '60px' }}
+                    loading="lazy"
+                  />
                 </div>
               </AnimatedSection>
-            ))}
+            </aside>
           </div>
         </div>
       </section>
@@ -154,10 +246,10 @@ function Home() {
       <section className="cta-section">
         <div className="container">
           <AnimatedSection className="cta-content">
-            <h2>Bereit für eine Schule mit Herz?</h2>
+            <h2>Bereit f&uuml;r eine Schule mit Herz?</h2>
             <p>
               Lernen Sie uns kennen und erfahren Sie, warum das Herz-Jesu-Gymnasium
-              seit über 130 Jahren die richtige Wahl für Ihr Kind ist.
+              seit &uuml;ber 130 Jahren die richtige Wahl f&uuml;r Ihr Kind ist.
             </p>
             <div className="cta-actions">
               <Link to="/anmeldung" className="btn btn-primary btn-lg">
