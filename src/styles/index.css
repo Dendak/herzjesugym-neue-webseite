@@ -647,6 +647,19 @@ ul { list-style: none; }
   color: var(--white); font-size: 0.8rem; font-weight: 500;
 }
 
+/* === Lehrkraefte === */
+.lehrer-group-photo { width: 100%; border-radius: var(--radius-lg); margin-bottom: 1rem; display: block; }
+.lehrer-group-caption { text-align: center; font-size: 0.85rem; color: var(--gray-500); margin-bottom: 3rem; }
+.lehrer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.lehrer-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; transition: all var(--transition); }
+.lehrer-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.lehrer-avatar { font-size: 3rem; color: var(--gray-300); margin-bottom: 0.75rem; }
+.lehrer-name { font-size: 0.9rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.25rem; }
+.lehrer-faecher { font-size: 0.78rem; color: var(--gray-500); line-height: 1.5; }
+.lehrer-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 100px; font-size: 0.65rem; font-weight: 600; margin-top: 0.5rem; }
+.lehrer-badge-role { background: var(--primary-100); color: var(--primary); }
+.lehrer-badge-away { background: #fef3c7; color: #92400e; }
+
 /* ============ RESPONSIVE ============ */
 @media (max-width: 1024px) {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -659,6 +672,7 @@ ul { list-style: none; }
   .subjects-grid { grid-template-columns: 1fr; }
   .news-with-sidebar { grid-template-columns: 1fr; }
   .fachbereiche-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .lehrer-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -705,6 +719,7 @@ ul { list-style: none; }
   .fachbereiche-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1rem; }
   .tagesheim-gallery { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
   .transport-grid { grid-template-columns: 1fr; }
+  .lehrer-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
@@ -716,4 +731,8 @@ ul { list-style: none; }
   .timeline { padding-left: 2.5rem; }
   .timeline-marker { left: -2.5rem; width: 30px; height: 30px; font-size: 0.75rem; }
   .timeline::before { left: 0.85rem; }
+  .lehrer-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .lehrer-card { padding: 1rem; }
+  .lehrer-avatar { font-size: 2.5rem; }
+  .lehrer-name { font-size: 0.8rem; }
 }

@@ -42,7 +42,7 @@ function Navbar() {
         { path: '/tagesheim', label: 'Tagesheim' },
         { href: 'https://internat.herzjesugym.com/', label: 'Internat', external: true },
         { href: 'http://eltern-am-herzjesugym.at/', label: 'Elternverein', external: true },
-        { path: '/schulleitung', label: 'Lehrerinnen/Lehrer' },
+        { path: '/lehrkraefte', label: 'Lehrerinnen/Lehrer' },
         { href: 'https://erato.webuntis.com/WebUntis/?school=herzjesugym#/basic/officehours', label: 'Sprechstunden', external: true },
         { path: '/schularzt', label: 'Schularzt / Schulpsychologin' },
         { path: '/hausverwaltung', label: 'Hausverwaltung' },

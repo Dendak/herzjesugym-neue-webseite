@@ -20,6 +20,7 @@ import Downloads from './pages/Downloads'
 import Stundentafeln from './pages/Stundentafeln'
 import Zeitraster from './pages/Zeitraster'
 import FolderSchule from './pages/FolderSchule'
+import Lehrkraefte from './pages/Lehrkraefte'
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path="/stundentafeln" element={<Stundentafeln />} />
           <Route path="/zeitraster" element={<Zeitraster />} />
           <Route path="/folder" element={<FolderSchule />} />
+          <Route path="/lehrkraefte" element={<Lehrkraefte />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>

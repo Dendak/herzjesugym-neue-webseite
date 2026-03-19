@@ -47,7 +47,7 @@ const communityLinks = [
   {
     icon: <FaChalkboardTeacher />,
     label: 'Lehrerinnen / Lehrer',
-    to: '/schulleitung',
+    to: '/lehrkraefte',
     external: false,
   },
   {
